@@ -9,3 +9,7 @@
 mat-sidenav{
   position: relative;
 }
+
+.mat-list-base{
+  border-right: 1px solid;
+}
