@@ -1,0 +1,12 @@
+mat-sidenav
+{
+  width: 10%;
+}
+
+mat-toolbar{
+  border-bottom: 1px solid;
+}
+
+mat-icon{
+  padding: 15px;
+}
