@@ -13,11 +13,15 @@ import {MatIconModule} from '@angular/material/icon';
 import { SidenavbarComponent } from './sidenavbar/sidenavbar.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatButtonModule } from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { DetailsCardComponent } from './details-card/details-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SidenavbarComponent
+    SidenavbarComponent,
+    DetailsCardComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +32,9 @@ import { MatButtonModule } from '@angular/material/button';
     MatListModule,
     MatIconModule,
     LayoutModule,
-    MatButtonModule
+    MatButtonModule,
+    MatCardModule,
+    MatProgressBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

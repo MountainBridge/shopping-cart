@@ -6,10 +6,11 @@
   width: 60px;
 }
 
-mat-sidenav{
-  position: relative;
-}
-
 .mat-list-base{
   border-right: 1px solid;
+  height: 100%;
+}
+
+.mat-sidenav-fixed{
+  margin-top: 64px;
 }
