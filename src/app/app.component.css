@@ -10,3 +10,8 @@ mat-toolbar{
 mat-icon{
   padding: 15px;
 }
+
+.right{
+  position: absolute;
+  right: 10px;  
+}
