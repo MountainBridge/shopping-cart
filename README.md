@@ -1,27 +1,71 @@
-# Cutie-Cart-Angular
+# Shopping Cart — Frontend Product Engineering Case
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.2.
+> Historical Angular shopping experience preserved as a product-journey case study for state, UX correctness, testing and incremental modernization.
 
-## Development server
+## 30-second read
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+A shopping cart looks simple until state becomes distributed across components, routes, persistence and user actions. This repository is used to reason about **correct user journeys, state transitions and regression safety**.
 
-## Code scaffolding
+**Primary question:** can we change the frontend without breaking the journeys users already depend on?
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Core journey
 
-## Build
+```text
+Browse product
+     ↓
+Add / remove item
+     ↓
+Cart state
+     ↓
+Quantity / price updates
+     ↓
+Checkout transition
+     ↓
+Validation + error handling
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## What this demonstrates
 
-## Running unit tests
+- Angular component architecture
+- reactive/state-driven UI
+- shopping/cart user journeys
+- validation and error states
+- browser testing
+- regression thinking around existing behaviour
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+The historical implementation uses Angular CLI 11.2.2. The goal is to modernize evidence and engineering practice without rewriting history.
 
-## Running end-to-end tests
+## Run it online
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+**[Open in GitHub Codespaces](https://codespaces.new/MountainBridge/shopping-cart)** — recommended full-project runtime.
 
-## Further help
+**[Open in StackBlitz](https://stackblitz.com/github/MountainBridge/shopping-cart)** — browser playground for the Angular application; Codespaces is the fallback for historical dependency/runtime issues.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Run locally
+
+```bash
+npm install --legacy-peer-deps
+npm start
+```
+
+Then open `http://localhost:4200/`.
+
+## Regression scenarios
+
+| Journey | What to verify |
+|---|---|
+| add item | cart state and totals update correctly |
+| remove item | state, count and totals remain consistent |
+| change quantity | validation prevents impossible values |
+| refresh | persisted state behaves as designed |
+| empty cart | empty state is intentional, not an error |
+| invalid action | user receives recoverable feedback |
+| rapid changes | no stale/overwritten state |
+
+## Interview prompts
+
+1. Where is the source of truth for cart state?
+2. How would you test price/quantity invariants?
+3. Which user journeys belong in e2e tests?
+4. What is the blast radius of changing the state model?
+5. How would you instrument a checkout failure?
